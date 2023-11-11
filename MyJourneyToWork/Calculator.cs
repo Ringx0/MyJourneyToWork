@@ -10,7 +10,7 @@ namespace Calculator
     public enum TransportModes
     {
         [Display(Name = "Petrol")] petrol,
-        [Display(Name = "Diesel")] deisel,
+        [Display(Name = "Diesel")] diesel,
         [Display(Name = "Hybrid")] hybrid,
         [Display(Name = "Electric")] electric,
         [Display(Name = "Motorbike")] motorbike,
@@ -74,9 +74,9 @@ namespace Calculator
                 {
                     total = transportModeWeighting[(int)TransportModes.petrol] * convertDistance() * (this.numDays*2);
                 }
-                else if (transportMode.Equals(TransportModes.deisel))
+                else if (transportMode.Equals(TransportModes.diesel))
                 {
-                    total = transportModeWeighting[(int)TransportModes.deisel] * convertDistance() * (this.numDays * 2);
+                    total = transportModeWeighting[(int)TransportModes.diesel] * convertDistance() * (this.numDays * 2);
                 }
                 else if (transportMode.Equals(TransportModes.hybrid))
                 {
