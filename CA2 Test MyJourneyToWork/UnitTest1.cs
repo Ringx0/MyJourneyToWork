@@ -5,7 +5,7 @@ namespace MyJourneyToWorkTest
     public class CalculatorTests
     {
         [TestMethod]
-        public void TestSustainabilityWeighting_Petrol()
+        public void TestSustainabilityWeighting_PetrolTransportMode()
         {
             // Arrange
             Calculator calculator = new Calculator
@@ -24,7 +24,7 @@ namespace MyJourneyToWorkTest
         }
 
         [TestMethod]
-        public void TestSustainabilityWeighting_Diesel()
+        public void TestSustainabilityWeighting_DieselTransportMode()
         {
             // Arrange
             Calculator calculator = new Calculator
@@ -43,7 +43,7 @@ namespace MyJourneyToWorkTest
         }
 
         [TestMethod]
-        public void TestSustainabilityWeighting_Hybrid()
+        public void TestSustainabilityWeighting_HybridTransportMode()
         {
             // Arrange
             Calculator calculator = new Calculator
@@ -62,7 +62,7 @@ namespace MyJourneyToWorkTest
         }
 
         [TestMethod]
-        public void TestSustainabilityWeighting_Electric()
+        public void TestSustainabilityWeighting_ElectricTransportMode()
         {
             // Arrange
             Calculator calculator = new Calculator
@@ -81,7 +81,7 @@ namespace MyJourneyToWorkTest
         }
 
         [TestMethod]
-        public void TestSustainabilityWeighting_Motorbike()
+        public void TestSustainabilityWeighting_MotorbikeTransportMode()
         {
             // Arrange
             Calculator calculator = new Calculator
@@ -100,7 +100,7 @@ namespace MyJourneyToWorkTest
         }
 
         [TestMethod]
-        public void TestSustainabilityWeighting_Electricbike()
+        public void TestSustainabilityWeighting_ElectricbikeTransportMode()
         {
             // Arrange
             Calculator calculator = new Calculator
@@ -119,7 +119,7 @@ namespace MyJourneyToWorkTest
         }
 
         [TestMethod]
-        public void TestSustainabilityWeighting_Train()
+        public void TestSustainabilityWeighting_TrainTransportMode()
         {
             // Arrange
             Calculator calculator = new Calculator
@@ -138,7 +138,7 @@ namespace MyJourneyToWorkTest
         }
 
         [TestMethod]
-        public void TestSustainabilityWeighting_Bus()
+        public void TestSustainabilityWeighting_BusTransportMode()
         {
             // Arrange
             Calculator calculator = new Calculator
@@ -157,7 +157,7 @@ namespace MyJourneyToWorkTest
         }
 
         [TestMethod]
-        public void TestSustainabilityWeighting_Tram()
+        public void TestSustainabilityWeighting_TramTransportMode()
         {
             // Arrange
             Calculator calculator = new Calculator
@@ -176,7 +176,7 @@ namespace MyJourneyToWorkTest
         }
 
         [TestMethod]
-        public void TestSustainabilityWeighting_Cycling()
+        public void TestSustainabilityWeighting_CyclingTransportMode()
         {
             // Arrange
             Calculator calculator = new Calculator
@@ -195,7 +195,7 @@ namespace MyJourneyToWorkTest
         }
 
         [TestMethod]
-        public void TestSustainabilityWeighting_Walking()
+        public void TestSustainabilityWeighting_WalkingTransportMode()
         {
             // Arrange
             Calculator calculator = new Calculator
@@ -211,6 +211,44 @@ namespace MyJourneyToWorkTest
 
             // Assert
             Assert.AreEqual(1.0252624671916009, result, 0.001);
+        }
+
+        [TestMethod]
+        public void TestSustainabilityWeighting_IsDistanceGreaterThan1000_InvalidDistance()
+        {
+            // Arrange
+            Calculator calculator = new Calculator
+            {
+                transportMode = TransportModes.walking,
+                distance = 10001,
+                milesOrKms = DistanceMeasurement.miles,
+                numDays = 3
+            };
+
+            // Act
+            double result = calculator.sustainabilityWeighting;
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void TestSustainabilityWeighting_IsDaysGreaterThan7_InvalidDays()
+        {
+            // Arrange
+            Calculator calculator = new Calculator
+            {
+                transportMode = TransportModes.electric,
+                distance = 100,
+                milesOrKms = DistanceMeasurement.kms,
+                numDays = 8
+            };
+
+            // Act
+            double result = calculator.sustainabilityWeighting;
+
+            // Assert
+            Assert.AreEqual(0, result);
         }
     }
 }

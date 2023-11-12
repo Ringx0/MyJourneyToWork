@@ -55,7 +55,9 @@ namespace Calculator
         //Ensure that distance is in miles for calculation
         private double convertDistance()
         {
-            if (milesOrKms.Equals(DistanceMeasurement.kms))
+            if (distance > 1000)
+                return 0; //added to prevent sustainibility weighting from calculating the number if distance is greater than 1000
+            else if (milesOrKms.Equals(DistanceMeasurement.kms))
                 return this.distance / 1.609344;
             else
                 return this.distance;
@@ -69,6 +71,10 @@ namespace Calculator
             get
             {
                 double total = 0;
+                if (numDays > 7 || numDays < 1)
+                {
+                    numDays = 0; //added to prevent sustainibility weighting from calculating the number of days is greater than 7 or less than 1
+                }
 
                 if (transportMode.Equals(TransportModes.petrol))
                 {
