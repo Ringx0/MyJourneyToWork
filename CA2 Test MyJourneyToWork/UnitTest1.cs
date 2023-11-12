@@ -7,6 +7,7 @@ namespace MyJourneyToWorkTest
         [TestMethod]
         public void TestSustainabilityWeighting_Petrol()
         {
+            // Arrange
             Calculator calculator = new Calculator
             {
                 transportMode = TransportModes.petrol,
@@ -15,13 +16,17 @@ namespace MyJourneyToWorkTest
                 numDays = 3         
             };
 
+            // Act
             double result = calculator.sustainabilityWeighting;
+
+            // Assert
             Assert.AreEqual(1491.2908613696013, result, 0.001);
         }
 
         [TestMethod]
         public void TestSustainabilityWeighting_Diesel()
         {
+            // Arrange
             Calculator calculator = new Calculator
             {
                 transportMode = TransportModes.diesel,
@@ -30,13 +35,17 @@ namespace MyJourneyToWorkTest
                 numDays = 6
             };
 
+            // Act
             double result = calculator.sustainabilityWeighting;
+
+            // Assert
             Assert.AreEqual(4800, result, 0.001);
         }
 
         [TestMethod]
         public void TestSustainabilityWeighting_Hybrid()
         {
+            // Arrange
             Calculator calculator = new Calculator
             {
                 transportMode = TransportModes.hybrid,
@@ -45,13 +54,17 @@ namespace MyJourneyToWorkTest
                 numDays = 1
             };
 
+            // Act
             double result = calculator.sustainabilityWeighting;
+
+            // Assert
             Assert.AreEqual(745.6454306848007, result, 0.001);
         }
 
         [TestMethod]
         public void TestSustainabilityWeighting_Electric()
         {
+            // Arrange
             Calculator calculator = new Calculator
             {
                 transportMode = TransportModes.electric,
@@ -60,13 +73,17 @@ namespace MyJourneyToWorkTest
                 numDays = 2
             };
 
+            // Act
             double result = calculator.sustainabilityWeighting;
+
+            // Assert
             Assert.AreEqual(480, result, 0.001);
         }
 
         [TestMethod]
         public void TestSustainabilityWeighting_Motorbike()
         {
+            // Arrange
             Calculator calculator = new Calculator
             {
                 transportMode = TransportModes.motorbike,
@@ -75,13 +92,17 @@ namespace MyJourneyToWorkTest
                 numDays = 4
             };
 
+            // Act
             double result = calculator.sustainabilityWeighting;
+
+            // Assert
             Assert.AreEqual(894.7745168217609, result, 0.001);
         }
 
         [TestMethod]
         public void TestSustainabilityWeighting_Electricbike()
         {
+            // Arrange
             Calculator calculator = new Calculator
             {
                 transportMode = TransportModes.electricbike,
@@ -90,13 +111,17 @@ namespace MyJourneyToWorkTest
                 numDays = 7
             };
 
+            // Act
             double result = calculator.sustainabilityWeighting;
+
+            // Assert
             Assert.AreEqual(2240, result, 0.001);
         }
 
         [TestMethod]
         public void TestSustainabilityWeighting_Train()
         {
+            // Arrange
             Calculator calculator = new Calculator
             {
                 transportMode = TransportModes.train,
@@ -105,13 +130,17 @@ namespace MyJourneyToWorkTest
                 numDays = 5
             };
 
+            // Act
             double result = calculator.sustainabilityWeighting;
+
+            // Assert
             Assert.AreEqual(1677.7022190408015, result, 0.001);
         }
 
         [TestMethod]
         public void TestSustainabilityWeighting_Bus()
         {
+            // Arrange
             Calculator calculator = new Calculator
             {
                 transportMode = TransportModes.bus,
@@ -120,13 +149,17 @@ namespace MyJourneyToWorkTest
                 numDays = 4
             };
 
+            // Act
             double result = calculator.sustainabilityWeighting;
+
+            // Assert
             Assert.AreEqual(1320, result, 0.001);
         }
 
         [TestMethod]
         public void TestSustainabilityWeighting_Tram()
         {
+            // Arrange
             Calculator calculator = new Calculator
             {
                 transportMode = TransportModes.tram,
@@ -135,13 +168,17 @@ namespace MyJourneyToWorkTest
                 numDays = 1
             };
 
+            // Act
             double result = calculator.sustainabilityWeighting;
+
+            // Assert
             Assert.AreEqual(93.20567883560008, result, 0.001);
         }
 
         [TestMethod]
         public void TestSustainabilityWeighting_Cycling()
         {
+            // Arrange
             Calculator calculator = new Calculator
             {
                 transportMode = TransportModes.cycling,
@@ -150,13 +187,17 @@ namespace MyJourneyToWorkTest
                 numDays = 7
             };
 
+            // Act
             double result = calculator.sustainabilityWeighting;
+
+            // Assert
             Assert.AreEqual(5.25, result, 0.001);
         }
 
-        /*[TestMethod]
+        [TestMethod]
         public void TestSustainabilityWeighting_Walking()
         {
+            // Arrange
             Calculator calculator = new Calculator
             {
                 transportMode = TransportModes.walking,
@@ -165,8 +206,11 @@ namespace MyJourneyToWorkTest
                 numDays = 3
             };
 
+            // Act
             double result = calculator.sustainabilityWeighting;
+
+            // Assert
             Assert.AreEqual(1.0252624671916009, result, 0.001);
-        }*/
+        }
     }
 }
